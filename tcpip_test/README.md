@@ -1,4 +1,7 @@
 # TCP Cubic 測試
+
+[![hackmd-github-sync-badge](https://hackmd.io/2NaU5jDpSy6IYzPYJuEiIw/badge)](https://hackmd.io/2NaU5jDpSy6IYzPYJuEiIw)
+
 ## Topology
   > B is switch  
   > others are hosts  
