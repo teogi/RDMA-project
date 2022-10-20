@@ -26,7 +26,7 @@
   > 1. (TCP) A-B-C  
   > 2. (UDP) A'-B -C 
 
-  注意要點：
+  ### 注意要點：
   > 要在意的點有 throughput, bandwidth, congestion window  
   > 應該需要 parse 出封包來看才會比較準確  
   > (也可以試著看 congestion control 中不同 phase 的狀況, e.g.  slow start)  
@@ -54,14 +54,29 @@
     * sink: 10.0.0.4
 
 ### Scenario 1: A,A'送tcp flow給C
-  * 初步測試：無bandwidth限制,個別發送10秒，A先發送，C延後5秒發送
+  * 初步測試：無bandwidth限制,個別發送10秒，A先發送，A'延後5秒發送
     * 使用**xterm**分別打開每個node CLI,再手動發iperf指令，不知道有沒有更好的做法……
-    * Node **A**:
+    * **A**:
       * iperf:![](https://i.imgur.com/wA1fFGk.png)
       * wireshark graph:![](https://i.imgur.com/nlKhcR5.png)
-    * Node **A'**:
+    * **A'**:
       * iperf:![](https://i.imgur.com/lQt4Vf5.png)
       * wireshark graph:![](https://i.imgur.com/SmanfVZ.png)
+  * bandwidth 100M:![](https://i.imgur.com/MxP1SyN.png)
+    * A:  
+      * iperf![](https://i.imgur.com/2REFR4w.png)
+      * wireshark![](https://i.imgur.com/gxBDefq.png)
+    * A':
+      * iperf![](https://i.imgur.com/QbofVNJ.png)
+      * wireshark![](https://i.imgur.com/MFhC7vf.png)
+
+### Scenario 2：tcp flow,A to C, A' to sink
+  * bandwidth 100M：同Scenario 1 配置
+      * A to C: ![](https://i.imgur.com/Mp0O4pV.png)
+      * A' to sink: ![](https://i.imgur.com/pO2WpWG.png)
+  * bandwidth 10M:
+      * A to C:
+      * A' to sink:
 
 
 ## Reference
